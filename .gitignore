@@ -1,4 +1,6 @@
+.idea
 target
+src/main/webapp/node_modules
 
 *.class
 

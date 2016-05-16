@@ -1,6 +1,6 @@
 .idea
-target
-src/main/webapp/node_modules
+/target/*
+/src/main/webapp/node_modules/*
 
 *.class
 

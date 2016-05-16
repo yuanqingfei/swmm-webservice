@@ -1,13 +1,36 @@
+<!DOCTYPE html>
 <html>
-<body>
-<h1>上传输入文件</h1>
+<head>
+    <meta charset="utf-8">
 
-<form action="rest/upload" method="post" enctype="multipart/form-data">
+    <!-- CSS (load bootstrap) -->
+    <link rel="stylesheet" href="css/upload.css">
 
-    <p>Select a file : <input type="file" name="file" size="45" accept=".inp" /></p>
-    <input type="submit" value="Upload Input File" />
+	<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+	<script type="text/javascript" src="node_modules/ng-file-upload/dist/ng-file-upload.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</head>
 
-</form>
 
+<body ng-app="fileUpload" ng-controller="MyCtrl">
+  <h4>Upload on file select</h4>
+  <button type="file" ngf-select="uploadFiles($file, $invalidFiles)"
+          accept="*" ngf-max-height="1000" ngf-max-size="1MB">
+      Select File</button>
+  <br><br>
+  File:
+  <div style="font:smaller">{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+      <span class="progress" ng-show="f.progress >= 0">
+          <div style="width:{{f.progress}}%"  
+               ng-bind="f.progress + '%'"></div>
+      </span>
+  </div>     
+  {{errorMsg}}
+  </hr>
+  {{f.result}}
+  </hr>
+  <pre>
+  {{report}}
+  </pre>
 </body>
 </html>

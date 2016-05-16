@@ -34,7 +34,6 @@ public class SwmmEndpoint {
        }
 
         StringBuilder reportString = new StringBuilder();
-        reportString.append("<PRE>");
         try {
             BufferedReader reader = new BufferedReader(new FileReader(report));
             String tempString = null;
@@ -45,7 +44,6 @@ public class SwmmEndpoint {
         }catch (IOException e){
             e.printStackTrace();
         }
-        reportString.append("</PRE>");
 
         return reportString.toString();
     }
